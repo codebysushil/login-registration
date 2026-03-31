@@ -15,3 +15,15 @@ III. password hashing `password_hash() & password_verify()` used
 IV. OTP verification
 V. 3rd parties libraries used via composer
 VI. Logs files (store errors files)
+
+---
+
+### Setup
+
+```bash
+php -S localhost:8000
+```
+           OR
+```bash
+composer serve
+```
