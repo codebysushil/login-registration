@@ -23,7 +23,7 @@
     ],
     "scripts": {
         "serve": [
-            "@php -S localhost:880"
+            "@php -S localhost:8800"
         ]
     },
     "minimum-stability": "dev",
