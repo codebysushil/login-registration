@@ -2,11 +2,23 @@
 
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable("../");
-$dotenv->load();
+$root = dirname(__DIR__);
 
-//echo $path = "/../".__DIR__;
-//$dotenv = Dotenv\Dotenv::createImmutable("../");
-//$dotenv->safeLoad();
+ define('APP_ROOT', $root);
 
-//echo $_ENV['APP_NAME'];
+$dotenv = Dotenv::createImmutable($root);
+$dotenv->safeLoad();
+
+$config = [];
+
+$config[] = [
+    'DB_CONNECTION' => $_ENV['DB_CONNECTION'],
+    'DB_DATABASE' => $_ENV['DB_DATABASE']
+];
+
+define('DB_CONNECTION', $_ENV['DB_CONNECTION']);
+define('DB_DATABASE', $_ENV['DB_DATABASE']);
+
+//dd($config);
+//
+//echo APP_ROOT;
