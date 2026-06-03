@@ -27,3 +27,4 @@ php -S localhost:8000
 ```bash
 composer serve
 ```
+work both
