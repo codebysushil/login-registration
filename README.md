@@ -1,30 +1,25 @@
 ## login-registration
-A PHP project on How to working a login registration authentication system. SQLite3 database with PDO.
+A PHP project on How to working a login registration authentication system with SQL and SQLite3 database using PDO.
 
 ### Requirement 
-1. PHP 8.2 or later 
-2. CSS (Bootstrap 5 CSS Framework)
-3. JavaScript (core and jQuery)
-4. SQL
-5. composer
+1. PHP 8.3+ or later 
+2. CSS/Lesscss
+3. JavaScript
+4. SQL/SQLite3
+5. composer v2.10
 
 ### Features
-I. CSRF token Protection
-II. session and cookie
-III. password hashing `password_hash() & password_verify()` used
-IV. OTP verification
-V. 3rd parties libraries used via composer
-VI. Logs files (store errors files)
+- [x] `CSRF` protection token
+- [x] Session and Cookie 
+- [x] Password hashing with `bcrypt` using `password_hash()` & `password_verify()` not by `md5()` or `sha1()`.
+- [x] OTP Verification
+- [x] Caching for fast `view` rendering
+- [x] Logs files (store errors files)
 
 ---
 
-### Setup
+### Start & run
 
-```bash
-php -S localhost:8000
-```
-           OR
 ```bash
 composer serve
 ```
-work both
