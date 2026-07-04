@@ -1,6 +1,6 @@
 ## ***`Project Auth`***
 
-A PHP project on How to working a login registration authentication system with SQL and SQLite3 database using PDO.
+A `PHP` project on How to working a login registration authentication system with `SQL` and `SQLite3` database using `PDO`.
 
 ---
 
