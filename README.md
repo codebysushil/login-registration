@@ -1,5 +1,8 @@
-## login-registration
+## ***`Project Auth`***
+
 A PHP project on How to working a login registration authentication system with SQL and SQLite3 database using PDO.
+
+---
 
 ### Requirement 
 1. PHP 8.3+ or later 
@@ -7,6 +10,8 @@ A PHP project on How to working a login registration authentication system with 
 3. JavaScript
 4. SQL/SQLite3
 5. composer v2.10
+
+---
 
 ### Features
 - [x] `CSRF` protection token
@@ -23,3 +28,4 @@ A PHP project on How to working a login registration authentication system with 
 ```bash
 composer serve
 ```
+---
