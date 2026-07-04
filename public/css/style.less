@@ -1,6 +1,8 @@
 @font: 'Inter', sans-serif;
 @bgColor: #f2f2f2;
 @fontSize: 14px;
+@primaryColor: #0099ff;
+@pink: #ff99aa;
 
 * {
     box-sizing: border-box;
@@ -17,9 +19,10 @@ body {
 }
 
 h3 {
-    color: darken(10%, "#ff56bb");
-}
+    color: @primaryColor;
+    text-align: center;
 
-span{
-    color: darken(5%, "#0088ff");
+    span {
+        color: darken(@pink, 15%);
+    }
 }
