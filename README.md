@@ -23,6 +23,13 @@ A `PHP` project on How to working a login registration authentication system wit
 
 ---
 
+### Setup
+```bash
+git clone https://github.com/codebysushil/login-registration.git
+cd login-registration
+composer setup
+```
+
 ### Start & run
 
 ```bash
