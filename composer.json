@@ -45,7 +45,7 @@
             "@php -r \"if (!file_exists('.env')) { copy('.env.example', '.env'); }\""
         ],
         "serve": [
-            "@php -S localhost:8800 -t public"
+            "@php -S localhost:8080 -t public"
         ]
     },
     "minimum-stability": "dev",
