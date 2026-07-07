@@ -2,9 +2,7 @@
 addPage('include/header.php');
 ?>
 <h3>Welcome to project <span>Auth</span>.</h3>
-<form>
-<input type="search" name="s" placeholder="Search..."/>
-</form>
+<a class="btn" href="https://github.com/codebysushil/login-registration.git">View Code</a>
 <?php
 addPage('include/footer.php');
 ?>
