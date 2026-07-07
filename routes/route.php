@@ -7,3 +7,7 @@ use App\Router as Route;
 Route::get('', 'HomeController', 'index');
 
 Route::get('login', 'AuthController', 'index');
+Route::post('submit-login', 'AuthController', 'login');
+
+Route::get('register', 'AuthController', 'index');
+Route::post('submit-register', 'AuthController', 'store');

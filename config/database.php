@@ -6,6 +6,7 @@ $driver = $_ENV['DB_CONNECTION'];
 $database = APP_ROOT.'/database/'. $_ENV['DB_DATABASE'];
 
 $db = null;
+$d = "hi";
 
 try {
     $db = new PDO("$driver:$database");
