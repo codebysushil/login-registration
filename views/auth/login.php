@@ -6,7 +6,8 @@ addPage('include/header.php');
 login
 </h3>
 <form action="/submit-login" method="POST">
-<input name="q">
+email: <input name="email">
+password: <input name="password">
 <button>Login</button>
 </form>
 

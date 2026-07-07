@@ -36,3 +36,24 @@ composer setup
 composer serve
 ```
 ---
+
+### Tables
+Create `Users` table.
+
+```sql
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    password_hash TEXT NOT NULL,
+    is_active INTEGER NOT NULL DEFAULT 1,
+    email_verified INTEGER NOT NULL DEFAULT 0,
+    last_login_at TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CHECK (is_active IN (0, 1)),
+    CHECK (email_verified IN (0, 1)),
+    CHECK (length(name) BETWEEN 1 AND 100)
+);
+```

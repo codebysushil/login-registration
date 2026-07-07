@@ -16,8 +16,18 @@ class AuthController extends BaseController
 
     public function login()
     {
-        $user = new User();
-        dd($_POST);
+        $user = new User;
+
+        $user->email = $_POST['email'];
+        $user->password = $_POST['password'];
+        if($user->login()){
+            $_SESSION['user_id'] = $user->id;
+            $_SESSION['user_name'] = $user->name;
+            redirect('/');
+            exit;
+        } else {
+            echo 'Unable to Login';
+        }
     }
 
     public function register(): mixed

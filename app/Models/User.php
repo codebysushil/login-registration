@@ -4,25 +4,36 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Config\Database;
+use App\Models\BaseModel;
+use PDO;
 
-class User
+class User extends BaseModel
 {
     private string $table = 'users';
     public int $id;
+    public string $name;
+    public string $email;
+    public string $password;
     private string $createdAt = 'created_at';
     private string $updatedAt = 'updated_at';
-    private int $limit = 10;
 
-    public function create($columns=[])
+    public function login()
     {
-        //
-    }
+        $query = "SELECT id, name, email, password FROM ". $this->table ." WHERE email = :email";
 
-    public function fetchAll(){
-        $db = new Database();
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->execute();
 
-        $result = $db->query("SELECT * FROM $this->table LIMIT $this->limit;");
-        return $result;
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($row && password_verify($this->password, $row['password'])){
+			$this->id = $row['id'];
+			$this->name = $row['name'];
+
+			return true;
+		}else{
+			return false;
+		}
     }
 }
