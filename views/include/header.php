@@ -9,8 +9,7 @@
     <link rel="icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400" rel="stylesheet" />
-    <link rel="stylesheet/less" type="text/css" href="css/style.less"/>
-    <script src="https://cdn.jsdelivr.net/npm/less"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.app"/>
     <title>Auth</title>
 </head>
 <body>
