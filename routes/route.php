@@ -9,5 +9,5 @@ Route::get('', 'HomeController', 'index');
 Route::get('login', 'AuthController', 'index');
 Route::post('submit-login', 'AuthController', 'login');
 
-Route::get('register', 'AuthController', 'index');
+Route::get('register', 'AuthController', 'register');
 Route::post('submit-register', 'AuthController', 'store');
