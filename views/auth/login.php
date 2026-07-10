@@ -15,6 +15,7 @@ login
 <input name="password">
 </div>
 <button class="btn">Login</button>
+<a href="/register">Register now ?</a>
 </form>
 
 <?php
