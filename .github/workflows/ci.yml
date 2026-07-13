@@ -2,24 +2,98 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+    branches: [main]
 
 jobs:
-  build:
-
+  lint:
+    name: Code Style
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-8.2-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-php-8.2-
+
+      - name: Prepare dependencies
+        run: composer remove laravel/pao --dev --no-interaction --no-update
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Check Rector
+        run: vendor/bin/rector --dry-run
+
+      - name: Check Pint
+        run: vendor/bin/pint --parallel --test
+
+  types:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-8.2-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-php-8.2-
+
+      - name: Prepare dependencies
+        run: composer remove laravel/pao --dev --no-interaction --no-update
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --ansi
+
+  tests:
+    name: Tests (PHP ${{ matrix.php }} - PEST ${{ matrix.pest }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.2', '8.3', '8.4', '8.5']
+        pest: ['3.0', '4.0']
+        exclude:
+          - php: '8.2'
+            pest: '4.0'
+          - php: '8.5'
+            pest: '3.0'
 
     steps:
+<<<<<<< HEAD
     - uses: actions/checkout@v7
+=======
+      - uses: actions/checkout@v4
+>>>>>>> ee0c2a8 (update)
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
 
+<<<<<<< HEAD
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v6
@@ -28,12 +102,23 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
+=======
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ matrix.php }}-pest-${{ matrix.pest }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-php-${{ matrix.php }}-pest-${{ matrix.pest }}-
+>>>>>>> ee0c2a8 (update)
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+     # - name: Prepare dependencies
+     #   if: matrix.pest == '3.0'
+     #   run: composer remove laravel/pao --dev --no-interaction --no-update
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
+     # - name: Install dependencies
+     #   run: |
+          composer require "pestphp/pest:^${{ matrix.pest }}" --dev --no-interaction --no-update
+          composer install --no-interaction --prefer-dist
 
-    # - name: Run test suite
-    #   run: composer run-script test
+     # - name: Run tests
+     #   run: vendor/bin/pest
