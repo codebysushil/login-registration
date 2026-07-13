@@ -10,6 +10,7 @@ use PDOException;
 final class Database
 {
     private ?PDO $connection = null;
+    private $dns;
 
     public function __construct(
         private EnvLoader $env
@@ -21,17 +22,15 @@ final class Database
         $username = $this->env->get('DB_USERNAME');
         $password = $this->env->get('DB_PASSWORD');
 
-        $dsn = sprintf(
-            '%s:host=%s;port=%s;dbname=%s;charset=utf8mb4',
-            $driver,
-            $host,
-            $port,
-            $database
-        );
+        if($driver === 'mysql'){
+            $this->dns = sprintf('%s:host=%s;port=%s;dbname=%s;charset=utf8mb4', $driver, $host, $port, $database);
+        } else  {
+            $this->dns = "$driver:../$database";
+        }
 
         try {
             $this->connection = new PDO(
-                $dsn,
+                $this->dns,
                 $username,
                 $password,
                 [
