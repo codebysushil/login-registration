@@ -4,7 +4,7 @@ function view($filePath, $data = [])
 {
     $path = str_replace('\\', DIRECTORY_SEPARATOR, $filePath);
     $path = str_replace('.', DIRECTORY_SEPARATOR, $path);
-    $file = APP_ROOT.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.$path.'.php';
+    $file = APP_ROOT.DIRECTORY_SEPARATOR.'resources/views'.DIRECTORY_SEPARATOR.$path.'.php';
 
     if (file_exists($file)) {
         extract($data);
@@ -17,7 +17,15 @@ function view($filePath, $data = [])
 
 function addPage($file)
 {
-    include_once APP_ROOT.'/views/'.$file;
+    include_once APP_ROOT.'/resources/views/'.$file;
+}
+
+function style($file){
+    include_once APP_ROOT .'/resources/css/'. $file;
+}
+
+function script($file){
+    include_once APP_ROOT .'/resources/js/'. $file;
 }
 
 function redirect($url)

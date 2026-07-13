@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\Services\Router;
 
-class Router
+class RouterService
 {
     private static $routes = [];
 

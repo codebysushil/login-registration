@@ -1,6 +1,6 @@
 <?php
 
-use App\Router as Route;
+use App\Services\Router\RouterService as Route;
 
 // use App\Middleware\Auth;
 // use App\Middleware\Guest;
