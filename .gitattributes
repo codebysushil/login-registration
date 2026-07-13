@@ -42,3 +42,6 @@
 *.ttf  binary
 *.otf  binary
 
+/.github/ export-ignore
+CHANGELOG.md export-ignore
+composer.lock export-ignore
