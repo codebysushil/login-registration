@@ -20,8 +20,9 @@ function addPage($file)
     include_once APP_ROOT.'/resources/views/'.$file;
 }
 
-function style($file){
-    include_once APP_ROOT .'/resources/css/'. $file;
+function style(){
+    $css = include_once APP_ROOT ."/resources/css/style.css";
+   print '<link rel="stylesheet" href="$css"/>';
 }
 
 function script($file){

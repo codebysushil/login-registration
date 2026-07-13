@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+<?php style(); ?>
     <title>Auth</title>
 </head>
 <body>
