@@ -3,30 +3,33 @@ name: CI
 on:
   push:
     branches: [main]
+
   pull_request:
     branches: [main]
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v7
+  tests:
+    runs-on: ubuntu-latest
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.4'
-        tools: composer:v2, phpstan, phpunit, pint
-        coverage: none
+    steps:
+      - uses: actions/checkout@v7
 
-    - name: Cache Composer packages
-      uses: actions/cache@v6
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-8.4-${{ hashFiles('**/composer.lock') }}
-        restore-keys: ${{ runner.os }}-php-8.4-
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer:v2, phpstan, phpunit, pint
+          coverage: none
 
-    - name: Install dependencies
-      run: composer install --no-interaction --prefer-dist
+      - name: Cache Composer packages
+        uses: actions/cache@v6
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-8.4-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-php-8.4-
 
-    - name: Run Pint
-      uses: vendor/bin/pint
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run Pint
+        uses: vendor/bin/pint
