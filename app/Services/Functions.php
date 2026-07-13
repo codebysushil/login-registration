@@ -20,15 +20,6 @@ function addPage($file)
     include_once APP_ROOT.'/resources/views/'.$file;
 }
 
-function style(){
-    $css = include_once APP_ROOT ."/resources/css/style.css";
-   print '<link rel="stylesheet" href="$css"/>';
-}
-
-function script($file){
-    include_once APP_ROOT .'/resources/js/'. $file;
-}
-
 function redirect($url)
 {
     header("Location: $url");
