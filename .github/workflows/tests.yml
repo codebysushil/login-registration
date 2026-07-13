@@ -23,7 +23,7 @@ jobs:
           - macos-15
           - windows-latest
 
-    name: PHP ${{ matrix.php }}-OS-${{ matrix.os }}
+    name: PHP ${{ matrix.php }} ${{ matrix.os }}
 
     steps:
       - name: Checkout repository
