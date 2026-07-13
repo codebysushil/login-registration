@@ -1,15 +1,15 @@
 <?php
 
 // autoloader for namespaced classes
-spl_autoload_register(function($class){
+spl_autoload_register(function ($class) {
 
-	$classFile = str_replace("\\", DIRECTORY_SEPARATOR, $class.'.php');
+    $classFile = str_replace('\\', DIRECTORY_SEPARATOR, $class.'.php');
 
-	$classPath = APP_ROOT.'/app/'.$classFile;
+    $classPath = APP_ROOT.'/app/'.$classFile;
 
-	if(file_exists($classPath)){
-		require_once($classPath);
-	}
+    if (file_exists($classPath)) {
+        require_once $classPath;
+    }
 });
 
 session_start();

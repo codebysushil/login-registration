@@ -1,12 +1,12 @@
 <?php
 
-require_once(__DIR__.'/envloader.php');
+require_once __DIR__.'/envloader.php';
 
 $driver = $_ENV['DB_CONNECTION'];
-$database = APP_ROOT.'/database/'. $_ENV['DB_DATABASE'];
+$database = APP_ROOT.'/database/'.$_ENV['DB_DATABASE'];
 
 $db = null;
-$d = "hi";
+$d = 'hi';
 
 try {
     $db = new PDO("$driver:$database");

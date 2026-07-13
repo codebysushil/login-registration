@@ -15,9 +15,9 @@ class Database
         $this->db = null;
 
         try {
-            $this->db = new PDO("sqlite:database.sqlite");
+            $this->db = new PDO('sqlite:database.sqlite');
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->db->exec("CREATE TABLE IF NOT EXISTS users (
+            $this->db->exec('CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE COLLATE NOCASE,
@@ -31,9 +31,9 @@ class Database
     CHECK (is_active IN (0, 1)),
     CHECK (email_verified IN (0, 1)),
     CHECK (length(name) BETWEEN 1 AND 100)
-);");
-        } catch (PDOException $e){
-            exit("Error: ".$e->getMessage());
+);');
+        } catch (PDOException $e) {
+            exit('Error: '.$e->getMessage());
         }
     }
 
@@ -42,14 +42,17 @@ class Database
         try {
             $stmt = $this->db->prepare($query);
             $stmt->execute($params);
+
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch(PDOException $e){
+        } catch (PDOException $e) {
             return false;
         }
     }
 
-    public function fetchAll($query){
-        $stmt=$this->db->query($query);
+    public function fetchAll($query)
+    {
+        $stmt = $this->db->query($query);
+
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

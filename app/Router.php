@@ -7,7 +7,9 @@ namespace App;
 class Router
 {
     private static $routes = [];
+
     private static $params = [];
+
     private static $controllerNamespace = 'App\Controllers\\';
 
     public static function add($uri, $controller, $action, $method = 'GET', $middleware = [])
@@ -17,7 +19,7 @@ class Router
             'uri' => $uri,
             'controller' => $controller,
             'action' => $action,
-            'middleware' => $middleware
+            'middleware' => $middleware,
         ];
     }
 
@@ -52,6 +54,7 @@ class Router
         } else {
             $url_found = false;
         }
+
         return $url_found;
     }
 
@@ -87,7 +90,7 @@ class Router
             foreach ($routes as $route) {
                 if ($route['method'] == $requestMethod) {
                     // Check for exact match
-                    if ('/' . $route['uri'] === $requestURI) {
+                    if ('/'.$route['uri'] === $requestURI) {
                         $url_found = true;
                     } else {
                         // Route has dynamic segments, check if it matches
@@ -96,6 +99,7 @@ class Router
 
                     if ($url_found) {
                         self::handleRoute($route);
+
                         return;
                     }
                 }
@@ -107,7 +111,6 @@ class Router
         }
     }
 
-
     private static function handleRoute($route)
     {
         // Handle middleware
@@ -117,11 +120,11 @@ class Router
         }
 
         // Get controller class and action method
-        $controllerClass = self::$controllerNamespace . $route['controller'];
+        $controllerClass = self::$controllerNamespace.$route['controller'];
         $action = $route['action'];
 
         // Instantiate controller
-        $controller = new $controllerClass();
+        $controller = new $controllerClass;
 
         // Get method parameters
         $reflectionMethod = new \ReflectionMethod($controller, $action);

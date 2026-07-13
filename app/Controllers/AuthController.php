@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
 use App\Models\User;
 
 class AuthController extends BaseController
@@ -20,7 +19,7 @@ class AuthController extends BaseController
 
         $user->email = $_POST['email'];
         $user->password = $_POST['password'];
-        if($user->login()){
+        if ($user->login()) {
             $_SESSION['user_id'] = $user->id;
             $_SESSION['user_name'] = $user->name;
             redirect('/');
@@ -37,6 +36,6 @@ class AuthController extends BaseController
 
     public function store()
     {
-        $user = new User();
+        $user = new User;
     }
 }
