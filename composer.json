@@ -13,11 +13,11 @@
     },
     "require-dev": {
         "symfony/var-dumper": "^8.1",
-        "laravel/pint": "*",
-        "phpstan/phpstan": "*",
-        "phpunit/phpunit": "*",
-        "phpstan/extension-installer": "*",
-        "tomasvotruba/type-coverage": "*"
+        "laravel/pint": "^1.29",
+        "phpstan/phpstan": "^2.2",
+        "phpunit/phpunit": "^13.2",
+        "phpstan/extension-installer": "^1.4",
+        "tomasvotruba/type-coverage": "^2.2"
     },
     "autoload": {
         "files": [
@@ -39,7 +39,10 @@
         }
     ],
     "config": {
-        "process-timeout": 0
+        "process-timeout": 0,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
     },
     "scripts": {
         "post-create-project-cmd": [
