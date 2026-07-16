@@ -13,7 +13,11 @@
     },
     "require-dev": {
         "symfony/var-dumper": "^8.1",
-        "laravel/pint": "^1.29"
+        "laravel/pint": "*",
+        "phpstan/phpstan": "*",
+        "phpunit/phpunit": "*",
+        "phpstan/extension-installer": "*",
+        "tomasvotruba/type-coverage": "*"
     },
     "autoload": {
         "files": [
