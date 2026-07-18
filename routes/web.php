@@ -1,11 +1,11 @@
 <?php
 
+use App\Middleware\Auth;
 use App\Services\Router\RouterService as Route;
 
-// use App\Middleware\Auth;
 // use App\Middleware\Guest;
 
-Route::get('', 'HomeController', 'index');
+Route::get('', 'HomeController', 'index', [Auth::class]);
 
 Route::get('login', 'AuthController', 'index');
 Route::post('submit-login', 'AuthController', 'login');
