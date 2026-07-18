@@ -8,7 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 class BaseTest extends TestCase
 {
-    public function test_add_two_num(){
+    public function test_add_two_num()
+    {
         $this->assertSame(4, 4);
     }
 }
