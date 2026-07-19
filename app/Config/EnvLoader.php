@@ -24,7 +24,7 @@ final class EnvLoader
             define('APP_ROOT', $root);
         }
 
-        Dotenv::createImmutable(APP_ROOT)->safeLoad();
+        Dotenv::createImmutable($root)->safeLoad();
 
         $this->loaded = true;
     }

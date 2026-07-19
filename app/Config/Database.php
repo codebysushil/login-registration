@@ -11,7 +11,7 @@ final class Database
 {
     private ?PDO $connection = null;
 
-    private $dns;
+    private string $dns;
 
     public function __construct(
         private EnvLoader $env
@@ -24,7 +24,13 @@ final class Database
         $password = $this->env->get('DB_PASSWORD');
 
         if ($driver === 'mysql') {
-            $this->dns = sprintf('%s:host=%s;port=%s;dbname=%s;charset=utf8mb4', $driver, $host, $port, $database);
+            $this->dns = sprintf(
+                '%s:host=%s;port=%d;dbname=%s;charset=utf8mb4',
+                (string)$driver,
+                (string)$host,
+                (int)$port,
+                (string)$database
+            );
         } else {
             $this->dns = "$driver:../$database";
         }
@@ -49,7 +55,7 @@ final class Database
         }
     }
 
-    public function connection(): PDO
+    public function connection(): PDO|null
     {
         return $this->connection;
     }

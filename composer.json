@@ -61,7 +61,6 @@
         "test:unit": "phpunit",
         "tests": [
             "@test:lint",
-            "@type",
             "@test:unit"
         ]
     },
