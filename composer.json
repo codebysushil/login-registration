@@ -55,10 +55,15 @@
         "serve": [
             "@php -S localhost:8000 -t public"
         ],
-        "type": "phpstan analyse app --level=max",
+        "type": "phpstan",
         "lint": "pint --parallel",
-        "test": "pint --parallel --test",
-        "unit": "phpunit"
+        "test:lint": "pint --test",
+        "test:unit": "phpunit",
+        "tests": [
+            "@test:lint",
+            "@type",
+            "@test:unit"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true
