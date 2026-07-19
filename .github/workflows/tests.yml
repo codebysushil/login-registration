@@ -57,5 +57,5 @@ jobs:
       - name: Validate Composer files
         run: composer validate --strict
 
-      - name: Run Pint
-        run: pint --test
+      - name: Run Tests
+        run: composer run-script tests
