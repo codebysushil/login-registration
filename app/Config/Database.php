@@ -26,10 +26,10 @@ final class Database
         if ($driver === 'mysql') {
             $this->dns = sprintf(
                 '%s:host=%s;port=%d;dbname=%s;charset=utf8mb4',
-                (string)$driver,
-                (string)$host,
-                (int)$port,
-                (string)$database
+                (string) $driver,
+                (string) $host,
+                (int) $port,
+                (string) $database
             );
         } else {
             $this->dns = "$driver:../$database";
@@ -55,7 +55,7 @@ final class Database
         }
     }
 
-    public function connection(): PDO|null
+    public function connection(): ?PDO
     {
         return $this->connection;
     }
