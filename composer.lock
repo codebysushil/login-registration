@@ -3696,16 +3696,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v8.1.1",
+            "version": "v8.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "40096a2515a979f3125c5c928603995b8664c62a"
+                "reference": "3412a5af7d34a19515a77890fc804fe8e50d1a4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/40096a2515a979f3125c5c928603995b8664c62a",
-                "reference": "40096a2515a979f3125c5c928603995b8664c62a",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3412a5af7d34a19515a77890fc804fe8e50d1a4f",
+                "reference": "3412a5af7d34a19515a77890fc804fe8e50d1a4f",
                 "shasum": ""
             },
             "require": {
@@ -3721,7 +3721,7 @@
                 "symfony/http-kernel": "^7.4|^8.0",
                 "symfony/process": "^7.4|^8.0",
                 "symfony/uid": "^7.4|^8.0",
-                "twig/twig": "^3.12"
+                "twig/twig": "^3.12|^4.0"
             },
             "bin": [
                 "Resources/bin/var-dump-server"
@@ -3759,7 +3759,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v8.1.1"
+                "source": "https://github.com/symfony/var-dumper/tree/v8.1.10"
             },
             "funding": [
                 {
@@ -3779,7 +3779,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-09T10:54:51+00:00"
+            "time": "2026-10-26T21:55:04+00:00"
         },
         {
             "name": "theseer/tokenizer",
