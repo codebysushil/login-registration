@@ -5,19 +5,19 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "phpmailer/phpmailer": "^7.1",
-        "vlucas/phpdotenv": "^5.6",
+        "phpmailer/phpmailer": "^7.2",
+        "vlucas/phpdotenv": "^5.8",
         "egulias/email-validator": "^4.0",
-        "monolog/monolog": "^3.10",
+        "monolog/monolog": "^3.12",
         "symfony/cache": "^8.1"
     },
     "require-dev": {
         "symfony/var-dumper": "^8.1",
-        "laravel/pint": "^1.29",
-        "phpstan/phpstan": "^2.2",
-        "phpunit/phpunit": "^13.2",
+        "laravel/pint": "^1.32",
+        "phpstan/phpstan": "^2.3",
+        "phpunit/phpunit": "^13.4",
         "phpstan/extension-installer": "^1.4",
-        "tomasvotruba/type-coverage": "^2.2"
+        "tomasvotruba/type-coverage": "^2.5"
     },
     "autoload": {
         "files": [
