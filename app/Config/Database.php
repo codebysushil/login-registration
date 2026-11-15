@@ -7,15 +7,19 @@ namespace App\Config;
 use PDO;
 use PDOException;
 
-final class Database
+use App\Config\EnvLoader;
+
+class Database
 {
     private ?PDO $connection = null;
 
     private string $dns;
+    private EnvLoader $env;
 
-    public function __construct(
-        private EnvLoader $env
-    ) {
+    public function __construct()
+    {
+        $this->env = new EnvLoader();
+
         $driver = $this->env->get('DB_CONNECTION', 'mysql');
         $host = $this->env->get('DB_HOST', '127.0.0.1');
         $port = $this->env->get('DB_PORT', '3306');

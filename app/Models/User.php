@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use PDO;
+use App\Models\BaseModel;
 
 class User extends BaseModel
 {
@@ -24,6 +24,8 @@ class User extends BaseModel
 
     public function login()
     {
+        $db = new BaseModel();
+
         $query = 'SELECT id, name, email, password FROM '.$this->table.' WHERE email = :email';
 
         $stmt = $this->db->prepare($query);
